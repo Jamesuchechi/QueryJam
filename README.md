@@ -1,9 +1,11 @@
 
 QueryJam
-QueryJam Logo
-Jam out your data queries in real-time with your team – where analysis meets collaboration!
 
-Overview
+QueryJam 🎵
+A collaborative data playground where teams can explore, analyze, and visualize data together in real-time.
+Features
+
+
 QueryJam is a revolutionary web-based platform that transforms data analysis into a dynamic, collaborative experience. Imagine Google Docs fused with a powerful SQL playground and an AI co-pilot – that's QueryJam! Designed for data engineers, analysts, and teams, it lets you experiment, iterate, and innovate on data workflows together, without the hassle of local setups or siloed tools.
 
 Whether you're prototyping pipelines, exploring hypotheses, or teaching SQL basics, QueryJam makes data work feel like a creative jam session: fun, fluid, and full of breakthroughs. Powered by real-time syncing, AI suggestions, and seamless integrations, it's the ultimate playground for turning raw data into actionable insights.
@@ -16,6 +18,28 @@ Built-In Visualizations: Drag query results into interactive charts and dashboar
 Secure & Scalable: Sandboxed environments protect sensitive data. Freemium model: Free for small teams, premium for unlimited sessions and custom AI models.
 Why QueryJam?
 In a world of fragmented tools (Jupyter for solo work, DataGrip for querying, Slack for chatting), QueryJam unites them into one seamless flow. No more emailing notebooks or debugging alone – jam it out live! Perfect for agile data teams, educators, or open-source projects.
+
+
+🤝 Real-time Collaboration - Work with your team simultaneously
+⚡ Instant Query Execution - Run MongoDB queries on your datasets
+📊 Beautiful Visualizations - Transform data into charts with one click
+🔒 Secure & Private - Your data stays safe
+🚀 Zero Setup - Start analyzing data in seconds
+
+Tech Stack
+
+Backend: Express.js + MongoDB + Mongoose
+Frontend: HTMX + Tailwind CSS + Handlebars
+Real-time: Server-Sent Events (SSE)
+Authentication: JWT + Express Sessions
+
+Prerequisites
+
+Node.js (v16 or higher)
+MongoDB (local or MongoDB Atlas)
+MongoDB Compass (optional, for viewing database)
+
+Jam out your data queries in real-time with your team – where analysis meets collaboration!
 
 Getting Started
 Sign Up: Head to queryjam.example.com and create a free account (OAuth with Google/GitHub supported).
@@ -33,14 +57,7 @@ GROUP BY user_id
 ORDER BY total_engagement DESC
 LIMIT 10;
 AI Suggestion: "Optimize with an index on 'date' for faster runs!"
-
-Tech Stack
-Frontend: React with WebSockets for real-time magic.
-Backend: Node.js/FastAPI with Redis for pub/sub.
-AI: Integrated with leading models for query generation.
-Data Engine: DuckDB in-browser; scales to cloud DBs.
-Roadmap
-MVP Launch: Basic collab + AI auto-complete (Q1 2026).
+.
 Upcoming: Mobile app, VR data rooms, Web3 privacy features.
 Community Ideas: Suggest yours in our Discussions!
 Contributing

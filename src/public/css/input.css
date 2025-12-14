@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer components {
+    .btn-primary {
+        @apply bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-200;
+    }
+
+    .card {
+        @apply bg-white rounded-lg shadow-md p-6;
+    }
+
+    .input-field {
+        @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none;
+    }
+}
+
+/* Query editor styles */
+.query-editor {
+    min-height: 300px;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+/* Results table styles */
+.results-table {
+    @apply w-full border-collapse;
+}
+
+.results-table th {
+    @apply bg-gray-100 px-4 py-2 text-left font-semibold text-gray-700 border-b-2 border-gray-300;
+}
+
+.results-table td {
+    @apply px-4 py-2 border-b border-gray-200;
+}
+
+.results-table tr:hover {
+    @apply bg-gray-50;
+}
+
+/* Loading states */
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: inline-block;
+}
+
+.htmx-request.htmx-indicator {
+    display: inline-block;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}

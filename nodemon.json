@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "js,hbs,css",
+    "ignore": [
+        "src/public/css/styles.css",
+        "node_modules"
+    ],
+    "exec": "node src/server.js"
+}
