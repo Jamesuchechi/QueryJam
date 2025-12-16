@@ -1,0 +1,70 @@
+<div class="space-y-4">
+    <div class="grid md:grid-cols-3 gap-3">
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p class="text-xs text-gray-400">Dataset</p>
+            <div class="text-white font-semibold flex items-center space-x-2">
+                <i data-lucide="database" class="w-4 h-4"></i>
+                <span>{{#if datasets.length}}{{datasets.[0].name}}{{else}}No dataset{{/if}}</span>
+            </div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p class="text-xs text-gray-400">Permissions</p>
+            <p class="text-white font-semibold">{{#if canEdit}}You can edit{{else}}View only{{/if}}</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <p class="text-xs text-gray-400">Latency</p>
+            <p class="text-white font-semibold">Sub-second targeting</p>
+        </div>
+    </div>
+
+    <form class="space-y-3" hx-post="/api/queries/execute" hx-target="#query-results" hx-swap="innerHTML">
+        <input type="hidden" name="sessionId" value="{{session._id}}" />
+        <div class="grid md:grid-cols-2 gap-3">
+            <label class="space-y-2 text-sm text-gray-300">
+                <span>Dataset</span>
+                <select name="datasetId" class="w-full px-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-white focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none" {{#unless datasets.length}}disabled{{/unless}}>
+                    {{#if datasets.length}}
+                        {{#each datasets}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                    {{else}}
+                        <option>No datasets available</option>
+                    {{/if}}
+                </select>
+            </label>
+            <label class="space-y-2 text-sm text-gray-300">
+                <span>Query type</span>
+                <div class="flex items-center space-x-3">
+                    <label class="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10">
+                        <input type="radio" name="queryType" value="mongodb" checked>
+                        <span>Mongo</span>
+                    </label>
+                    <label class="flex items-center space-x-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 opacity-60">
+                        <input type="radio" disabled>
+                        <span>SQL (soon)</span>
+                    </label>
+                </div>
+            </label>
+        </div>
+
+        <div class="rounded-2xl bg-dark-900 border border-white/10 shadow-inner relative overflow-hidden">
+            <div class="absolute top-4 right-4 flex items-center space-x-2 text-xs text-gray-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Live</span>
+            </div>
+            <textarea name="queryText" rows="8" placeholder='{"$match": {"status": "active"}}'
+                class="w-full bg-transparent text-sm text-primary-50 p-5 focus:outline-none" {{#unless canEdit}}disabled{{/unless}}></textarea>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+            <button type="submit" {{#unless canEdit}}disabled{{/unless}} {{#unless datasets.length}}disabled{{/unless}}
+                class="px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition disabled:opacity-50 disabled:cursor-not-allowed">Run query</button>
+            <button type="button" class="px-4 py-3 rounded-xl border border-white/20 text-white hover:border-primary-400 transition">Ask AI for suggestion</button>
+            <span class="text-sm text-gray-400">SSE streaming keeps everyone in sync.</span>
+        </div>
+    </form>
+
+    <div id="query-results" class="p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-gray-200">
+        Awaiting query results...
+    </div>
+</div>

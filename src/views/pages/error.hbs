@@ -1,60 +1,11 @@
-<div class="min-h-screen flex items-center justify-center px-4 py-12">
-    <!-- Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-red-900 via-red-800 to-pink-900">
-        <div class="absolute inset-0 opacity-30"
-            style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.03%27%3E%3Ccircle cx=%2730%27 cy=%2730%27 r=%272%27/%3E%3C/g%3E%3C/svg%3E');">
-        </div>
+<section class="max-w-3xl mx-auto px-6 pt-16 pb-20 text-center space-y-6">
+    <div class="w-20 h-20 mx-auto rounded-3xl bg-red-500/20 border border-red-500/40 flex items-center justify-center shadow-glass">
+        <i data-lucide="alert-circle" class="w-10 h-10 text-red-200"></i>
     </div>
-
-    <!-- Floating elements -->
-    <div class="absolute top-20 left-20 w-16 h-16 bg-red-500/20 rounded-full blur-xl animate-bounce-subtle"></div>
-    <div class="absolute bottom-20 right-20 w-24 h-24 bg-pink-500/20 rounded-full blur-xl animate-bounce-subtle"
-        style="animation-delay: 1s;"></div>
-
-    <div class="relative z-10 w-full max-w-md text-center">
-        <!-- Error Icon -->
-        <div
-            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl shadow-glass mb-6">
-            <i data-lucide="alert-triangle" class="w-10 h-10 text-white"></i>
-        </div>
-
-        <!-- Error Message -->
-        <h1 class="text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
-            Oops!
-        </h1>
-
-        <h2 class="text-2xl font-semibold text-white mb-4">
-            {{title}}
-        </h2>
-
-        <p class="text-gray-300 mb-8 leading-relaxed">
-            {{message}}
-        </p>
-
-        {{#if error}}
-        <details class="glass-dark p-4 rounded-lg mb-6 text-left">
-            <summary class="text-white font-semibold cursor-pointer hover:text-red-300">
-                Technical Details
-            </summary>
-            <pre class="text-red-300 text-sm mt-2 overflow-x-auto">{{json error}}</pre>
-        </details>
-        {{/if}}
-
-        <!-- Action Buttons -->
-        <div class="space-y-4">
-            <a href="/"
-                class="inline-block bg-gradient-primary px-6 py-3 rounded-lg text-white font-semibold hover:shadow-card-hover transition-all duration-300 card-3d">
-                Go Home
-            </a>
-
-            <div class="text-gray-400 text-sm">
-                <button onclick="window.history.back()"
-                    class="text-primary-400 hover:text-primary-300 underline-animation">
-                    ← Go Back
-                </button>
-            </div>
-        </div>
+    <h1 class="text-4xl font-semibold">{{title}}</h1>
+    <p class="text-gray-300">{{message}}</p>
+    <div class="flex justify-center gap-4">
+        <a href="/dashboard" class="px-5 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition">Back to dashboard</a>
+        <a href="/" class="px-5 py-3 rounded-xl border border-white/20 text-white hover:border-primary-400 transition">Home</a>
     </div>
-</div>
-</content>
-<parameter name="filePath">/home/jamesuchechi/Documents/QueryJam/src/views/pages/error.hbs
+</section>

@@ -1,0 +1,88 @@
+<section class="max-w-6xl mx-auto px-6 pt-12 pb-16">
+    <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
+        <div class="space-y-6">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-glass">
+                <i data-lucide="badge-check" class="w-4 h-4 text-emerald-200"></i>
+                <span class="text-sm text-gray-200">Free forever for small teams</span>
+            </div>
+            <h1 class="text-4xl font-semibold">Spin up a QueryJam workspace</h1>
+            <p class="text-gray-300">Collaborate on datasets instantly, with fintech-grade visuals and glassy motion inspired by Coinbase and PayPal.</p>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start space-x-3">
+                    <span class="w-6 h-6 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-200">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                    </span>
+                    <span>Real-time editing on every query and dashboard.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="w-6 h-6 rounded-lg bg-accent-500/20 flex items-center justify-center text-accent-200">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </span>
+                    <span>AI co-pilot to translate natural language into perfect Mongo/SQL.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-200">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    </span>
+                    <span>Secure by default with role-based permissions and audit trails.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="glass-dark rounded-3xl border border-white/10 shadow-glass p-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p class="text-sm text-gray-400">Create account</p>
+                    <h2 class="text-2xl font-semibold">Join the jam</h2>
+                </div>
+                <a href="/login" class="text-primary-200 text-sm hover:text-primary-100">Log in</a>
+            </div>
+
+            {{#if error}}
+            <div class="mb-4 p-3 rounded-lg border border-red-400/60 bg-red-500/10 text-red-200 text-sm">
+                {{error}}
+            </div>
+            {{/if}}
+            <div id="signup-feedback"></div>
+
+            <form action="/auth/signup" method="POST" class="space-y-4" hx-post="/auth/signup"
+                hx-target="#signup-feedback" hx-swap="innerHTML">
+                <div class="space-y-2">
+                    <label for="name" class="text-sm text-gray-300">Full name</label>
+                    <div class="relative">
+                        <i data-lucide="user" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        <input id="name" name="name" type="text" required placeholder="Amina Idris"
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none text-white" />
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="email" class="text-sm text-gray-300">Work email</label>
+                    <div class="relative">
+                        <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        <input id="email" name="email" type="email" required placeholder="you@company.com"
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none text-white" />
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="password" class="text-sm text-gray-300">Password</label>
+                    <div class="relative">
+                        <i data-lucide="lock" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        <input id="password" name="password" type="password" required placeholder="••••••••"
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none text-white" />
+                    </div>
+                </div>
+                <div class="flex items-start space-x-2 text-sm text-gray-300">
+                    <input type="checkbox" required class="mt-1 rounded bg-dark-800 border-white/20">
+                    <span>I agree to the Terms and Privacy Policy.</span>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition transform hover:-translate-y-0.5">Create workspace</button>
+            </form>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 text-xs text-gray-400">
+                <div class="p-3 rounded-xl border border-white/5 bg-white/5">Unlimited viewers</div>
+                <div class="p-3 rounded-xl border border-white/5 bg-white/5">SSE live sync</div>
+            </div>
+        </div>
+    </div>
+</section>

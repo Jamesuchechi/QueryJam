@@ -1,0 +1,174 @@
+<section class="max-w-7xl mx-auto px-6 pt-12 pb-20 space-y-16">
+    <header class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glass">
+                <i data-lucide="waveform" class="w-5 h-5"></i>
+            </div>
+            <span class="text-lg font-semibold">QueryJam</span>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="/login" class="px-4 py-2 text-sm font-semibold text-gray-200 hover:text-white">Log in</a>
+            <a href="/signup" class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 shadow-glass text-sm font-semibold hover:shadow-card-hover transition">Get started</a>
+        </div>
+    </header>
+
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-8">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-glass">
+                <span class="text-xs uppercase tracking-[0.2em] text-primary-200">New</span>
+                <span class="text-sm text-gray-200">AI copiloted, Coinbase-clean UI</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                Jam on data together, with <span class="bg-gradient-to-r from-primary-400 via-accent-400 to-primary-300 bg-clip-text text-transparent">instant insight</span>.
+            </h1>
+            <p class="text-lg text-gray-300 max-w-2xl">
+                QueryJam blends the polish of fintech with the power of a real-time SQL/Mongo playground. Collaborate live, ship dashboards in minutes, and let the AI co-pilot keep you flowing.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/signup"
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card hover:shadow-card-hover text-lg font-semibold transition transform hover:-translate-y-0.5">Start a free workspace</a>
+                <a href="/login" class="px-6 py-3 rounded-xl border border-white/20 hover:border-primary-400 text-lg font-semibold text-gray-200 hover:text-white transition">View live demo</a>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-sm text-gray-300">
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-glass">
+                    <p class="text-2xl font-semibold text-white">98%</p>
+                    <p class="text-gray-400">Query success rate</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-glass">
+                    <p class="text-2xl font-semibold text-white">Live</p>
+                    <p class="text-gray-400">Real-time co-editing</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-glass">
+                    <p class="text-2xl font-semibold text-white">SOC2</p>
+                    <p class="text-gray-400">Enterprise security</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="absolute -top-10 -right-6 w-48 h-48 bg-accent-500/20 blur-3xl rounded-full"></div>
+            <div class="absolute -bottom-6 -left-10 w-52 h-52 bg-primary-500/30 blur-3xl rounded-full"></div>
+            <div class="relative glass-dark rounded-3xl border border-white/10 shadow-card overflow-hidden p-6 space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-400">Live session</p>
+                        <p class="text-lg font-semibold">Growth Cohort Q3</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-300 text-xs font-semibold">Synced</span>
+                </div>
+
+                <div class="rounded-2xl bg-dark-800 border border-white/5 p-4 space-y-3 shadow-inner">
+                    <div class="flex items-center justify-between text-sm text-gray-400">
+                        <span>Mongo Playground</span>
+                        <span class="flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Executing</span>
+                        </span>
+                    </div>
+                    <pre class="bg-dark-900 rounded-xl border border-white/5 p-4 text-sm text-primary-100 overflow-x-auto">db.users.aggregate([
+  { "$match": { "plan": "pro" }},
+  { "$group": { _id: "$region", total: { "$sum": "$spend" } }}
+])</pre>
+                    <div class="grid grid-cols-3 gap-3 text-xs text-gray-300">
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-gray-400">Latency</p>
+                            <p class="text-white font-semibold">212 ms</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-gray-400">Rows</p>
+                            <p class="text-white font-semibold">12,483</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-gray-400">AI Insights</p>
+                            <p class="text-white font-semibold">3 suggestions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <p class="text-sm text-gray-400">Designed with fintech polish</p>
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 border border-dark-900 shadow-glass"></div>
+                        <div class="w-10 h-10 rounded-full bg-white/20 border border-dark-900"></div>
+                        <div class="w-10 h-10 rounded-full bg-emerald-400/70 border border-dark-900"></div>
+                        <div class="w-10 h-10 rounded-full bg-dark-700 border border-dark-900"></div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Inspire confidence like Coinbase and PayPal—clean, glassy, motion-rich.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="grid md:grid-cols-3 gap-6">
+        <div class="glass-dark rounded-2xl border border-white/10 p-6 shadow-card space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-primary-500/20 border border-primary-500/30 flex items-center justify-center text-primary-200">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold">AI copiloting</h3>
+            <p class="text-gray-300">Prompt-driven query drafting, instant optimizations, and guardrails that keep your data safe.</p>
+        </div>
+        <div class="glass-dark rounded-2xl border border-white/10 p-6 shadow-card space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-accent-500/20 border border-accent-500/30 flex items-center justify-center text-accent-200">
+                <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Live collaboration</h3>
+            <p class="text-gray-300">Jam like Figma: shared cursors, presence, and chat pinned to every query.</p>
+        </div>
+        <div class="glass-dark rounded-2xl border border-white/10 p-6 shadow-card space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-200">
+                <i data-lucide="shield" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-semibold">Trusted security</h3>
+            <p class="text-gray-300">Roles, audit trails, and SSE-only streams keep collaboration smooth and controlled.</p>
+        </div>
+    </section>
+
+    <section class="glass-dark rounded-3xl border border-white/10 p-10 shadow-glass space-y-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+                <p class="text-sm text-primary-200 font-semibold mb-2">Flow</p>
+                <h2 class="text-3xl font-semibold">Your data story in three steps</h2>
+                <p class="text-gray-300 max-w-2xl">Upload a CSV or connect a database, ask a question in natural language, and co-present the chart with your team instantly.</p>
+            </div>
+            <a href="/signup" class="px-5 py-3 rounded-xl bg-white text-dark-900 font-semibold shadow-card hover:-translate-y-0.5 transition">Create my workspace</a>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                <div class="flex items-center justify-between text-sm text-gray-400">
+                    <span>01</span>
+                    <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                </div>
+                <h3 class="font-semibold">Connect or upload</h3>
+                <p class="text-sm text-gray-300">Bring Postgres, Mongo, or a simple CSV. No installs.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                <div class="flex items-center justify-between text-sm text-gray-400">
+                    <span>02</span>
+                    <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
+                <h3 class="font-semibold">Ask or type</h3>
+                <p class="text-sm text-gray-300">Let the AI draft your query, then refine together with instant previews.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                <div class="flex items-center justify-between text-sm text-gray-400">
+                    <span>03</span>
+                    <i data-lucide="presentation" class="w-4 h-4"></i>
+                </div>
+                <h3 class="font-semibold">Share in real-time</h3>
+                <p class="text-sm text-gray-300">Stream charts to your team, embed, or export with one click.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row items-center justify-between gap-8 p-10 rounded-3xl border border-white/10 glass-dark shadow-card">
+        <div class="space-y-3">
+            <p class="text-primary-200 text-sm font-semibold">Ready to jam?</p>
+            <h3 class="text-3xl font-semibold">Launch a collaborative data room today.</h3>
+            <p class="text-gray-300">No installs. SOC2-ready. Polished like the best fintech apps.</p>
+        </div>
+        <div class="flex gap-4">
+            <a href="/signup" class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition">Start free</a>
+            <a href="/login" class="px-6 py-3 rounded-xl border border-white/20 text-white font-semibold hover:border-primary-400 transition">Sign in</a>
+        </div>
+    </section>
+</section>

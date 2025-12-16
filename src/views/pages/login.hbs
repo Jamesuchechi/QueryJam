@@ -1,0 +1,73 @@
+<section class="max-w-6xl mx-auto px-6 pt-12 pb-16">
+    <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-glass">
+                <i data-lucide="shield" class="w-4 h-4 text-primary-200"></i>
+                <span class="text-sm text-gray-200">Secure, glassy sign-in</span>
+            </div>
+            <h1 class="text-4xl font-semibold">Welcome back to QueryJam</h1>
+            <p class="text-gray-300">Pick up where you left off—collaborate on live queries, dashboards, and AI-assisted insights.</p>
+            <div class="grid grid-cols-2 gap-4 text-sm text-gray-300">
+                <div class="p-4 rounded-2xl glass-dark border border-white/10 space-y-1">
+                    <p class="text-white text-xl font-semibold">Live sync</p>
+                    <p>See teammates editing in real-time.</p>
+                </div>
+                <div class="p-4 rounded-2xl glass-dark border border-white/10 space-y-1">
+                    <p class="text-white text-xl font-semibold">SOC2-ready</p>
+                    <p>Fintech-grade security posture.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-dark rounded-3xl border border-white/10 shadow-glass p-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <p class="text-sm text-gray-400">Sign in</p>
+                    <h2 class="text-2xl font-semibold">Access your workspace</h2>
+                </div>
+                <a href="/signup" class="text-primary-200 text-sm hover:text-primary-100">Create account</a>
+            </div>
+
+            {{#if error}}
+            <div class="mb-4 p-3 rounded-lg border border-red-400/60 bg-red-500/10 text-red-200 text-sm">
+                {{error}}
+            </div>
+            {{/if}}
+            <div id="login-feedback"></div>
+
+            <form action="/auth/login" method="POST" class="space-y-4" hx-post="/auth/login"
+                hx-target="#login-feedback" hx-swap="innerHTML">
+                <div class="space-y-2">
+                    <label for="email" class="text-sm text-gray-300">Email</label>
+                    <div class="relative">
+                        <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        <input id="email" name="email" type="email" required placeholder="you@company.com"
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none text-white" />
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="password" class="text-sm text-gray-300">Password</label>
+                    <div class="relative">
+                        <i data-lucide="lock" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        <input id="password" name="password" type="password" required placeholder="••••••••"
+                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none text-white" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-sm text-gray-300">
+                    <label class="inline-flex items-center space-x-2">
+                        <input type="checkbox" class="rounded bg-dark-800 border-white/20">
+                        <span>Stay signed in</span>
+                    </label>
+                    <a href="#" class="text-primary-200 hover:text-primary-100">Forgot password?</a>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition transform hover:-translate-y-0.5">Sign in</button>
+            </form>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 text-xs text-gray-400">
+                <div class="p-3 rounded-xl border border-white/5 bg-white/5">Encrypted sessions</div>
+                <div class="p-3 rounded-xl border border-white/5 bg-white/5">2FA ready</div>
+            </div>
+        </div>
+    </div>
+</section>

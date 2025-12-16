@@ -1,0 +1,48 @@
+<div class="glass-dark rounded-3xl border border-white/10 shadow-card p-5 space-y-4">
+    <div class="flex items-center justify-between">
+        <div>
+            <p class="text-sm text-gray-400">Collaboration</p>
+            <h3 class="text-lg font-semibold">Live chat</h3>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-200 text-xs flex items-center space-x-1">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            <span>Online</span>
+        </span>
+    </div>
+    <div class="space-y-3 max-h-80 overflow-y-auto pr-2">
+        {{#if messages.length}}
+        {{#each messages}}
+        <div class="p-3 rounded-xl bg-white/5 border border-white/5">
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+                <span class="flex items-center space-x-2">
+                    <span class="w-7 h-7 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-xs font-semibold">
+                        {{#if this.userId.avatar}}
+                        <img src="{{this.userId.avatar}}" alt="avatar" class="w-7 h-7 rounded-full border border-white/20">
+                        {{else}}
+                        {{#if this.userId.name}}
+                        <span>{{userInitial this.userId.name}}</span>
+                        {{else}}
+                        <span>AI</span>
+                        {{/if}}
+                        {{/if}}
+                    </span>
+                    <span class="text-white font-semibold">{{#if this.userId.name}}{{this.userId.name}}{{else}}System{{/if}}</span>
+                </span>
+                <span>{{timeAgo this.createdAt}}</span>
+            </div>
+            <p class="text-sm text-gray-200">{{this.content}}</p>
+        </div>
+        {{/each}}
+        {{else}}
+        <p class="text-sm text-gray-400">No messages yet. Start the conversation.</p>
+        {{/if}}
+    </div>
+    <div class="space-y-2">
+        <label class="text-sm text-gray-300">Drop a note</label>
+        <div class="relative">
+            <input type="text" placeholder="Coming soon: live chat input"
+                class="w-full pr-12 px-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-gray-300 focus:border-primary-400 focus:ring-2 focus:ring-primary-500/40 outline-none" disabled>
+            <i data-lucide="send" class="w-4 h-4 text-gray-500 absolute right-4 top-3.5"></i>
+        </div>
+    </div>
+</div>

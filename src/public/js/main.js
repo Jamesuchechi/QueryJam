@@ -55,4 +55,14 @@ document.body.addEventListener('showToast', (event) => {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('QueryJam initialized');
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+});
+
+// Refresh icons after HTMX swaps
+document.body.addEventListener('htmx:afterSwap', () => {
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 });

@@ -1,0 +1,41 @@
+<div class="overflow-x-auto">
+    {{#if queries.length}}
+    <table class="min-w-full text-left text-sm text-gray-300">
+        <thead>
+            <tr class="text-gray-400">
+                <th class="py-3 px-4">Query</th>
+                <th class="py-3 px-4">Dataset</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-4">Duration</th>
+                <th class="py-3 px-4">Run by</th>
+                <th class="py-3 px-4">When</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5">
+            {{#each queries}}
+            <tr class="hover:bg-white/5">
+                <td class="py-3 px-4 max-w-xs">
+                    <p class="text-white font-semibold truncate">{{truncate this.queryText 60}}</p>
+                    <p class="text-xs text-gray-400">{{this.queryType}}</p>
+                </td>
+                <td class="py-3 px-4 text-gray-200">{{#if this.datasetId}}Linked dataset{{else}}—{{/if}}</td>
+                <td class="py-3 px-4">
+                    {{#if (eq this.status "success")}}
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-200 text-xs">Success</span>
+                    {{else if (eq this.status "running")}}
+                    <span class="px-3 py-1 rounded-full bg-primary-500/10 text-primary-200 text-xs">Running</span>
+                    {{else}}
+                    <span class="px-3 py-1 rounded-full bg-red-500/10 text-red-200 text-xs">Error</span>
+                    {{/if}}
+                </td>
+                <td class="py-3 px-4 text-gray-200">{{#if this.executionTime}}{{this.executionTime}} ms{{else}}—{{/if}}</td>
+                <td class="py-3 px-4 text-gray-200">{{#if this.userId.name}}{{this.userId.name}}{{else}}—{{/if}}</td>
+                <td class="py-3 px-4 text-gray-400 text-xs">{{timeAgo this.createdAt}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <p class="text-sm text-gray-400">No queries yet. Run your first query to populate history.</p>
+    {{/if}}
+</div>

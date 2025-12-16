@@ -1,0 +1,67 @@
+<section class="max-w-7xl mx-auto px-6 pt-6 pb-14 space-y-8">
+    <div class="glass-dark rounded-3xl border border-white/10 shadow-glass p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+            <p class="text-sm text-primary-200 font-semibold">Collaborative session</p>
+            <h1 class="text-3xl font-semibold">{{session.name}}</h1>
+            <p class="text-gray-300 mt-2">{{session.description}}</p>
+            <div class="flex flex-wrap items-center gap-3 mt-4 text-sm text-gray-300">
+                <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">{{#if session.isPublic}}Public{{else}}Private{{/if}}</span>
+                <span class="flex items-center space-x-2"><i data-lucide="users" class="w-4 h-4"></i><span>{{session.members.length}} members</span></span>
+                <span class="flex items-center space-x-2"><i data-lucide="clock" class="w-4 h-4"></i><span>Started {{timeAgo session.createdAt}}</span></span>
+            </div>
+        </div>
+        <div class="flex gap-3">
+            <a href="/sessions" class="px-4 py-2 rounded-xl border border-white/20 text-white hover:border-primary-400 transition">Back</a>
+            <button class="px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 shadow-card font-semibold hover:shadow-card-hover transition">Share invite</button>
+        </div>
+    </div>
+
+    <div class="grid xl:grid-cols-3 gap-6">
+        <div class="xl:col-span-2 space-y-6">
+            <div class="glass-dark rounded-3xl border border-white/10 shadow-glass p-6 space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-400">Query workspace</p>
+                        <h2 class="text-xl font-semibold">Build and ship queries</h2>
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-200 text-xs">{{#if canEdit}}Editor access{{else}}Read only{{/if}}</span>
+                </div>
+                {{> query-editor session=session datasets=datasets canEdit=canEdit}}
+            </div>
+
+            <div class="glass-dark rounded-3xl border border-white/10 shadow-glass p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold">Recent queries</h3>
+                    <span class="text-sm text-gray-400">Live history</span>
+                </div>
+                {{> results-table queries=queries}}
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            {{> chat-sidebar messages=messages}}
+
+            <div class="glass-dark rounded-3xl border border-white/10 shadow-card p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold">Session data</h3>
+                    <i data-lucide="database" class="w-5 h-5 text-primary-200"></i>
+                </div>
+                <div class="space-y-3">
+                    {{#if datasets.length}}
+                    {{#each datasets}}
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white font-semibold">{{this.name}}</p>
+                            <span class="text-xs text-gray-400">{{formatDate this.createdAt}}</span>
+                        </div>
+                        <p class="text-sm text-gray-300">{{truncate this.description 80}}</p>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <p class="text-sm text-gray-400">No datasets yet. Upload one to get started.</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
